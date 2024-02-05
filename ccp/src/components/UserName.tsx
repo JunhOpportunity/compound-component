@@ -4,8 +4,8 @@ export default function UserName() {
   // Context
   const { user } = {
     user: {
-      name: "이름",
+      name: "김준호",
     },
   };
-  return <div>{user.name}</div>;
+  return <div className="user-name">{user.name}</div>;
 }

@@ -4,8 +4,8 @@ export default function UserJob() {
   // Context
   const { user } = {
     user: {
-      job: "직업",
+      job: "개발자",
     },
   };
-  return <div>{user.job}</div>;
+  return <div className="user-job">{user.job}</div>;
 }

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const UserCard = styled.div`
   width: 100%;
@@ -90,23 +89,20 @@ const GoPageBtn = styled.button`
   cursor: pointer;
 `;
 
-export default function PersonBox({ personData }) {
-  const navigate = useNavigate();
-  const address = personData.userNickname;
-  const onClickedBtn = () => {
-    navigate(`/user-reputations/${address}`);
-  };
+export default function PersonBox() {
+  // const address = personData.userNickname;
   return (
-    <UserCard>
-      <ProfileImgBox>
-        <ProfileImg>
-          <Img src={personData.profileImgUrl} />
-        </ProfileImg>
-      </ProfileImgBox>
-      <PersonName>{personData.userDisplayName}</PersonName>
-      <PersonJob>{personData.userJob} </PersonJob>
-      <PersonInfo>{personData.personInfo}</PersonInfo>
-      <GoPageBtn onClick={onClickedBtn}>평판 작성하러 가기</GoPageBtn>
-    </UserCard>
+    <></>
+    // <UserCard>
+    //   <ProfileImgBox>
+    //     <ProfileImg>
+    //       <Img src={personData.profileImgUrl} />
+    //     </ProfileImg>
+    //   </ProfileImgBox>
+    //   <PersonName>{personData.userDisplayName}</PersonName>
+    //   <PersonJob>{personData.userJob} </PersonJob>
+    //   <PersonInfo>{personData.personInfo}</PersonInfo>
+    //   <GoPageBtn>평판 작성하러 가기</GoPageBtn>
+    // </UserCard>
   );
 }

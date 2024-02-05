@@ -1,14 +1,13 @@
-import './App.css';
-import UserCard from './components/UserCard';
+import UserCard from "./components/UserCard";
 
 function App() {
   return (
     <UserCard>
-      <UserCard.ProfileImage/>
-      <UserCard.Info>
-        <UserCard.Name/>
-        <UserCard.Job/>
-      </UserCard.Info>
+      <UserCard.ProfileImage />
+      <UserCard.Name />
+      <UserCard.Job />
+      <UserCard.Info />
+      <UserCard.Navigate />
     </UserCard>
   );
 }
