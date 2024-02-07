@@ -1,11 +1,6 @@
-import { ReactNode } from "react";
+import { useUserCardContext } from "./UserCardContext";
 
 export default function UserName() {
-  // Context
-  const { user } = {
-    user: {
-      name: "김준호",
-    },
-  };
+  const { user } = useUserCardContext();
   return <div className="user-name">{user.name}</div>;
 }

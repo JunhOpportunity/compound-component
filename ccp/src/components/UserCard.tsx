@@ -9,13 +9,13 @@ import UserCardContext from "./UserCardContext";
 import { User } from "../types/user";
 
 export type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   user: User;
 };
 
 export default function UserCard({ children, user }: Props) {
   return (
-    <UserCardContext.Provider value={{user}}>
+    <UserCardContext.Provider value={{ user }}>
       <div className="user-card">{children}</div>
     </UserCardContext.Provider>
   );
