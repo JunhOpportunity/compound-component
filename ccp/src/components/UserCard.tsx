@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import ProfileImage from "./ProfileImage";
-import UserInfo from "./UserIntro";
+import UserIntro from "./UserIntro";
 import UserJob from "./UserJob";
 import UserName from "./UserName";
 import "./UserCard.css";
@@ -22,7 +22,7 @@ export default function UserCard({ children, user }: Props) {
 }
 
 UserCard.ProfileImage = ProfileImage;
-UserCard.Info = UserInfo;
+UserCard.Intro = UserIntro;
 UserCard.Job = UserJob;
 UserCard.Name = UserName;
 UserCard.Navigate = NavigateButton;

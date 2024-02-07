@@ -3,5 +3,5 @@ export type User = {
   name: string;
   nickname: string;
   job: string;
-  info: string;
+  intro: string;
 };

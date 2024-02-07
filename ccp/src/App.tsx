@@ -7,7 +7,7 @@ const user: User = {
   name: "김준호",
   nickname: "junhopportunity",
   job: "개발자",
-  info: "풀스택 개발자가 되기 위해 준비중인 프론트엔드 개발자입니다.",
+  intro: "풀스택 개발자가 되기 위해 준비중인 프론트엔드 개발자입니다.",
 };
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <UserCard.ProfileImage />
       <UserCard.Name />
       <UserCard.Job />
-      <UserCard.Info />
+      <UserCard.Intro />
       <UserCard.Navigate />
     </UserCard>
   );
