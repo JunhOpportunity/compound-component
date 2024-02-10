@@ -86,3 +86,32 @@ function Main() {
   );
 }
 ```
+어떤가요? 더 깔끔하게 작성되었다고 느껴지시나요?
+
+좀 더 깔끔하고 명확한 구조를 갖춘 코드가 완성되었습니다.
+
+### ② CCP를 활용해 컴포넌트 재사용하기
+
+![image](https://github.com/JunhOpportunity/compound-component/assets/89464762/b94d4a78-c13f-4ea6-9ba2-1b88f13ab6e5)
+
+
+그렇다면 이번에는 CCP를 조금 더 활용해보기 위해 컴포넌트 재사용 방법에 대해 알아봅시다.
+
+만약, 해당 유저의 상세 페이지로 이동하는 `평판 작성하러 가기` 버튼을 눌러서 상세 페이지로 이동했을 때 맨 위에 `UserCard` 의 버튼만 제거한 채로 같은 유저 카드를 보여주고 싶다면 어떻게 해야할까요?
+
+하위 컴포넌트인 `<UserCard.Navigate />` 만 제거하면 바로 구현이 가능합니다.
+
+```jsx
+function App() {
+  return (
+    <UserCard user={user}>
+      <UserCard.ProfileImage />
+      <UserCard.Name />
+      <UserCard.Job />
+      <UserCard.Intro />
+    </UserCard>
+  );
+}
+```
+
+따라서 컴포넌트를 약간 변경해서 재사용하고 싶은 경우에도 CCP를 사용하면 효율적이라는 것을 알게 되었습니다.
