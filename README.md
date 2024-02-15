@@ -115,3 +115,97 @@ function App() {
 ```
 
 따라서 컴포넌트를 약간 변경해서 재사용하고 싶은 경우에도 CCP를 사용하면 효율적이라는 것을 알게 되었습니다.
+
+### ③ 무신사의 상품 카드를 CCP의 관점에서 바라보기
+
+위 예시들을 기반으로 유명 사이트의 상품 카드를 CCP의 관점으로 바라보는 것도 가능합니다.
+
+무신사의 스타일 스냅의 코디맵 카테고리와 브랜드 룩북 카테고리를 예시로 들어보겠습니다.
+
+![image](https://github.com/JunhOpportunity/compound-component/assets/89464762/fc51717f-43c0-4459-9074-714c79c06db8)
+
+
+기본적인 카드의 형태는 동일하지만 상품 이미지 하단에 있는 부분인 하위 컴포넌트는 약간 다른 모습이라는 것을 확인할 수 있습니다.
+
+이 구조를 간단하게 시각적으로 나타내볼까요?
+
+![image](https://github.com/JunhOpportunity/compound-component/assets/89464762/14702156-f177-44d4-80ed-d435e384aea3)
+
+
+A는 공통적으로 사용되는 상위 컴포넌트, B와 C에서 다른 부분이 하위 컴포넌트이니 하위 컴포넌트만 다르게 호출해주면 바로 구현이 가능할 것 같네요.
+
+CCP로 작성해보면 재사용이 가능하기 때문에 굉장히 간단하게 작성할 수 있다는 것을 알 수 있습니다.
+
+```jsx
+// B
+function BrandLookBook() {
+  return (
+    <ProductCard product={product}>
+      <ProductCard.snapImage />
+      <ProductCard.snapInfo>
+				<ProductCard.goodsInfo>
+			</ProductCard.snapInfo>
+    </ProductCard>
+  );
+}
+```
+
+```jsx
+// C
+function CoordiMap() {
+  return (
+    <ProductCard product={product}>
+      <ProductCard.snapImage />
+      <ProductCard.snapInfo>
+				<ProductCard.goodsImage/>
+				<ProductCard.goodsInfo>
+			</ProductCard.snapInfo>
+    </ProductCard>
+  );
+}
+```
+
+만약 CCP를 사용하지 않았다면 BrandLookBook 컴포넌트와 CoordiMap 컴포넌트 내에 일일이 하위 컴포넌트들을 가져와서 사용하거나 유사한 컴포넌트를 여러 개 작성하며 많은 비용이 낭비되었을 수 있습니다.
+
+이외에도 정말 다양한 방법으로 CCP를 활용할 수 있으니 또 어떤 곳에 CCP를 적용할 수 있을 지 한 번 생각해 볼 시간을 드리기 위해 카드 형태의 컴포넌트에 대한 예시만 작성해보았습니다.
+
+CCP는 이렇게 활용할 수 있는 곳도 많고 장점도 많지만 단점도 존재합니다.
+
+## 단점
+
+### 복잡성
+
+여러 컴포넌트를 함께 사용하기 때문에 초기 설정이 복잡합니다.
+
+따라서 빠르게 웹앱을 구축하고 배포해야 하는 상황이라면 CCP를 적용하지 않는 것이 적합할 수 있습니다.
+
+### 학습 곡선
+
+CCP에 대해 학습하고 적용하는 것은 어렵지 않고 오랜 기간이 걸리지 않습니다.
+
+하지만 컴포넌트를 중점적으로 사용하는 React에 대한 이해가 부족하다면 CCP를 적용하기 힘들 수 있고 React 사용에 능숙하다고 해도 아무런 학습 없이 바로 CCP를 적용할 수는 없습니다.
+
+따라서 컴포넌트를 중점적으로 사용하지 않는 프레임워크만 다뤄보았거나 CCP를 학습할 시간조차 없는 아주 긴박한 상황이라면 다른 방법을 모색해 보아야 합니다.
+
+### 너무나도 많은 유연성
+
+CCP는 쉽게 구조를 변경할 수 있어서 유연성이 좋은 편이지만 이것이 처음 CCP를 적용한 개발자의 의도가 아닌 전혀 다른 방식으로 컴포넌트를 사용하는 상황이 발생할 수 있기 때문입니다.
+
+이로 인해 예기치 않은 동작이 발생할 수 있으므로 협력하는 개발자들과 CCP 사용에 대한 규칙을 정하는 것이 필요할 수 있습니다.
+
+### 테스트의 어려움
+
+CCP는 단일 컴포넌트보다 많은 컴포넌트로 구성되어 있기 때문에 테스트를 진행할 때 까다로울 수 있습니다.
+
+이렇게 Compound Component Pattern 에 대해서 알아보았습니다.
+
+CCP는 정말 다양한 곳에 활용할 수 있기 때문에 제가 작성한 예시에만 한정해서 적용해보지 마시고 여러 코드에 적용해보시면서 확실하게 이해해보시기 바랍니다.
+
+그런 다음 예전에 작성해둔 코드들 중 CCP 적용에 적합한 코드가 있다면 한 번 적용시켜 보면서 한층 더 깔끔한 코드를 보며 성장의 기쁨을 느껴보시기 바랍니다.
+
+## 참고 자료
+
+- https://www.patterns.dev/react/compound-pattern/
+- [원티드 프리온보딩 12월](https://www.wanted.co.kr/events/pre_challenge_fe_16) - [오종택](https://github.com/saengmotmi) 멘토 강의
+
+[https://velog.io/@junhopportunity/React-Compound-패턴-적용하기](https://velog.io/@junhopportunity/React-Compound-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
